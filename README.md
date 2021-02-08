@@ -7,6 +7,7 @@
 ### Screen
 
 - [ ] AuthScreen
+- [ ] VerifyScreen
 - [ ] Matching Screen
 - [ ] ChatRoom Screen
 - [ ] Profile Screen (Bottom Sheet or Floating Panel)
