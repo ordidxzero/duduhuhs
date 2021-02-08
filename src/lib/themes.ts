@@ -3,6 +3,7 @@
 //  Components, Screens
 
 import { StyleSheet } from 'react-native';
+import { INPUT_BACKGROUND_COLOR, NAVIGATION_BUTTON_BACKGROUND_COLOR, NAVIGATION_BUTTON_TEXT_COLOR } from './color.constant';
 
 export type CustomTheme = {
   components: {
@@ -32,17 +33,17 @@ export const defaultTheme: CustomTheme = {
     input: {
       theme: StyleSheet.create({
         container: {
-          backgroundColor: '#dfe6e9',
+          backgroundColor: INPUT_BACKGROUND_COLOR,
         },
       }),
     },
     navigationButton: {
       theme: StyleSheet.create({
         container: {
-          backgroundColor: '#2ecc71',
+          backgroundColor: NAVIGATION_BUTTON_BACKGROUND_COLOR,
         },
         text: {
-          color: 'white',
+          color: NAVIGATION_BUTTON_TEXT_COLOR,
         },
       }),
     },

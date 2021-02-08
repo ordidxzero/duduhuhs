@@ -1,5 +1,5 @@
 import React, { createContext, Dispatch, useContext, useReducer } from 'react';
-import { defaultTheme, CustomTheme } from './styles';
+import { defaultTheme, CustomTheme } from './themes';
 
 type ThemeState = CustomTheme; // 나중에 Theme으로 바꿔야됨
 

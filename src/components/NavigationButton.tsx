@@ -4,27 +4,47 @@ import { Dimensions, StyleSheet, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RootStackParamList } from '../screens/types';
 import { useThemeState } from '../lib/context';
+import { NAVIGATION_BUTTON_DISABLED_BACKGROUND_COLOR } from '../lib/color.constant';
 
 type NavigationButtonProps = {
   text: string;
   navigateTo: keyof RootStackParamList;
   customBgColor?: string;
   customTextColor?: string;
+  disabled?: boolean;
+  beforeNavigate?: () => void;
 };
 
-const NavigationButton: React.FC<NavigationButtonProps> = ({ text, navigateTo, customBgColor, customTextColor }) => {
+const NavigationButton: React.FC<NavigationButtonProps> = ({
+  text,
+  navigateTo,
+  customBgColor,
+  customTextColor,
+  disabled,
+  beforeNavigate,
+}) => {
   const navigation = useNavigation();
   const {
     components: {
       navigationButton: { theme },
     },
   } = useThemeState();
-  const backgroundColor = customBgColor || theme.container.backgroundColor;
+
+  const backgroundColor = disabled
+    ? NAVIGATION_BUTTON_DISABLED_BACKGROUND_COLOR
+    : customBgColor || theme.container.backgroundColor;
+
   const color = customTextColor || theme.text.color;
+
+  const onPress = () => {
+    if (beforeNavigate) {
+      beforeNavigate();
+    }
+    return navigation.navigate(navigateTo);
+  };
+
   return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate(navigateTo)}
-      style={[styles.container, theme.container, { backgroundColor }]}>
+    <TouchableOpacity onPress={onPress} disabled={disabled} style={[styles.container, theme.container, { backgroundColor }]}>
       <Text style={[styles.text, theme.text, { color }]}>{text}</Text>
     </TouchableOpacity>
   );
@@ -32,7 +52,6 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({ text, navigateTo, c
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2ecc71',
     width: Dimensions.get('screen').width * 0.9,
     padding: 20,
     borderRadius: 10,
@@ -47,7 +66,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
   },
-  text: { fontSize: 19, fontWeight: '700', color: 'white' },
+  text: { fontSize: 19, fontWeight: '700' },
 });
 
 export default NavigationButton;
