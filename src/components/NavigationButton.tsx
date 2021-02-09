@@ -25,7 +25,7 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
 }) => {
   const navigation = useNavigation();
   const {
-    components: {
+    theme: {
       navigationButton: { theme },
     },
   } = useThemeState();

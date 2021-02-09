@@ -1,7 +1,10 @@
 import React, { createContext, Dispatch, useContext, useReducer } from 'react';
-import { defaultTheme, CustomTheme } from './themes';
+import { defaultTheme, CustomTheme, darkModeTheme } from './themes';
 
-type ThemeState = CustomTheme; // 나중에 Theme으로 바꿔야됨
+type ThemeState = {
+  darkMode: boolean;
+  theme: CustomTheme;
+};
 
 const ThemeStateContext = createContext<ThemeState | undefined>(undefined);
 
@@ -10,21 +13,21 @@ type Action = { type: 'TOGGLE_DARKMODE'; payload: boolean };
 type ThemeDispatch = Dispatch<Action>;
 const ThemeDispatchContext = createContext<ThemeDispatch | undefined>(undefined);
 
-function themeReducer(state: ThemeState, action: Action): ThemeState {
-  switch (action.type) {
+function themeReducer(state: ThemeState, { payload, type }: Action): ThemeState {
+  switch (type) {
     case 'TOGGLE_DARKMODE':
-      return defaultTheme;
+      return { darkMode: payload, theme: payload ? darkModeTheme : defaultTheme };
     default:
       throw new Error('Unhandled action');
   }
 }
 
 export function ThemeContextProvider({ children }: { children: React.ReactNode }) {
-  const [theme, dispatch] = useReducer(themeReducer, defaultTheme);
+  const [state, dispatch] = useReducer(themeReducer, { darkMode: false, theme: defaultTheme });
 
   return (
     <ThemeDispatchContext.Provider value={dispatch}>
-      <ThemeStateContext.Provider value={theme}>{children}</ThemeStateContext.Provider>
+      <ThemeStateContext.Provider value={state}>{children}</ThemeStateContext.Provider>
     </ThemeDispatchContext.Provider>
   );
 }

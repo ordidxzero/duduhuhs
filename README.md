@@ -9,7 +9,9 @@
 - [ ] AuthScreen
 - [ ] VerifyScreen
 - [ ] Matching Screen
+  - [ ] Pulse Animation이 있는 Circle Button으로 바꿀 것
 - [ ] ChatRoom Screen
+  - [ ] Header 만들 것
 - [ ] Profile Screen (Bottom Sheet or Floating Panel)
 
 ### Function

@@ -1,17 +1,32 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { CustomStackScreenProp } from './types';
+import { Text, Dimensions, Keyboard, StyleSheet } from 'react-native';
+import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import ChatForm from '../components/ChatForm';
+import ChatSafeAreaView from '../components/ChatSafeAreaView';
+import Spacer from '../components/Spacer';
 
-const ChatRoomScreen = ({ navigation }: CustomStackScreenProp<'ChatRoom'>) => {
+const { width } = Dimensions.get('screen');
+
+const ChatRoomScreen = () => {
   return (
-    <View>
-      <Text>Hello Chat Room</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Matching')}>
-        <Text>Go To Matching Screen</Text>
-      </TouchableOpacity>
-    </View>
+    <ChatSafeAreaView>
+      <ScrollView style={styles.scrollView}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={{ height: '100%' }}>
+          <Spacer position="top" />
+          <Text>Hello Chat Room</Text>
+        </TouchableWithoutFeedback>
+      </ScrollView>
+      <ChatForm />
+    </ChatSafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+    width,
+    paddingHorizontal: 10,
+  },
+});
 
 export default ChatRoomScreen;

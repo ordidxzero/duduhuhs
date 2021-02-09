@@ -18,7 +18,7 @@ const App = () => {
           <Stack.Screen name="Auth" component={AuthScreen} />
           <Stack.Screen name="Verify" component={VerifyScreen} />
           <Stack.Screen name="Matching" component={MatchingScreen} />
-          <Stack.Screen name="ChatRoom" component={ChatRoomScreen} options={{ headerShown: true, headerLeft: () => null }} />
+          <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeContextProvider>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, KeyboardType, ReturnKeyType, StyleSheet } from 'react-native';
+import { Dimensions, KeyboardType, ReturnKeyType, StyleProp, StyleSheet, TextStyle } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { useThemeState } from '../lib/context';
 
@@ -9,11 +9,12 @@ type InputProps = {
   returnKeyType?: ReturnKeyType;
   value?: string;
   onChangeText?: (text: string) => void;
+  customStyle?: StyleProp<TextStyle>;
 };
 
-const Input: React.FC<InputProps> = ({ placeholder, keyboardType, returnKeyType = 'done', value, onChangeText }) => {
+const Input: React.FC<InputProps> = ({ placeholder, keyboardType, returnKeyType = 'done', value, onChangeText, customStyle }) => {
   const {
-    components: {
+    theme: {
       input: { theme },
     },
   } = useThemeState();
@@ -22,7 +23,7 @@ const Input: React.FC<InputProps> = ({ placeholder, keyboardType, returnKeyType 
       value={value}
       onChangeText={onChangeText}
       placeholder={placeholder}
-      style={[styles.container, theme.container]}
+      style={[styles.container, customStyle, theme.container]}
       keyboardType={keyboardType}
       returnKeyType={returnKeyType}
     />

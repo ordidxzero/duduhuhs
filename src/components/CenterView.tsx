@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
   container: {
     width,
     height,
-    backgroundColor: 'blue',
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
