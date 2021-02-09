@@ -4,19 +4,20 @@
 
 ## Todo
 
-### Screen
+### 스크린
 
-- [ ] AuthScreen
-- [ ] VerifyScreen
+- [x] AuthScreen
+- [x] VerifyScreen
 - [ ] Matching Screen
   - [ ] Pulse Animation이 있는 Circle Button으로 바꿀 것
 - [ ] ChatRoom Screen
   - [ ] Header 만들 것
 - [ ] Profile Screen (Bottom Sheet or Floating Panel)
 
-### Function
+### 기능
 
-- [ ] Register, Login
-  - [ ] Verify Phone number
-  - [ ] Verify student ID and name
-  - [ ] Compare user info and huhs member info
+- [ ] 휴대폰 인증
+- [ ] 학번 및 이름 인증
+- [ ] 유저 정보와 휴즈 회원 정보 비교
+- [ ] 다크모드를 시스템 모드랑 연동시킬지?
+- [ ] etc
