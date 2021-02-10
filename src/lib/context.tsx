@@ -13,7 +13,7 @@ type Action = { type: 'TOGGLE_DARKMODE'; payload: boolean };
 type ThemeDispatch = Dispatch<Action>;
 const ThemeDispatchContext = createContext<ThemeDispatch | undefined>(undefined);
 
-function themeReducer(state: ThemeState, { payload, type }: Action): ThemeState {
+function themeReducer(_: ThemeState, { payload, type }: Action): ThemeState {
   switch (type) {
     case 'TOGGLE_DARKMODE':
       return { darkMode: payload, theme: payload ? darkModeTheme : defaultTheme };
