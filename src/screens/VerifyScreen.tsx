@@ -33,4 +33,4 @@ const VerifyScreen = () => {
   );
 };
 
-export default VerifyScreen;
+export default React.memo(VerifyScreen);

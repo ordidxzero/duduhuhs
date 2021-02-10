@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CustomSafeAreaView from '../components/CustomSafeAreaView';
-import Input from '../components/Input';
+import Input, { Picker } from '../components/Input';
 import NavigationButton from '../components/NavigationButton';
 
 const styles = StyleSheet.create({
@@ -27,7 +27,7 @@ const AuthScreen = () => {
         <Text style={styles.appLogo}>두두휴 App Logo</Text>
         <Input value={name} onChangeText={setName} placeholder="Name" />
         <Input value={studentId} onChangeText={setStudentId} placeholder="Student ID" keyboardType="number-pad" />
-        <Input value={department} onChangeText={setDepartment} placeholder="Department" />
+        <Picker value={department} onValueChange={setDepartment} />
         <Input value={phone} onChangeText={setPhone} placeholder="Phone Number" keyboardType="numeric" />
       </View>
       <NavigationButton navigateTo="Verify" text="인증번호 요청" disabled={!isAllFill} beforeNavigate={beforeNavigate} />
@@ -35,4 +35,4 @@ const AuthScreen = () => {
   );
 };
 
-export default AuthScreen;
+export default React.memo(AuthScreen);

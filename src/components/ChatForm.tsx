@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
   },
   chatSubmit: {
     paddingHorizontal: 13,
-    zIndex: 50,
+    zIndex: 100,
     paddingVertical: 10,
     borderRadius: 10,
   },
 });
 
-export default ChatForm;
+export default React.memo(ChatForm);

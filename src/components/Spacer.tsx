@@ -23,11 +23,11 @@ const Spacer: React.FC<SpacerProps> = ({ position }) => {
 
 const styles = StyleSheet.create({
   topSpacer: {
-    height: getStatusBarHeight(true),
+    height: 2 * getStatusBarHeight(true) + 10,
   },
   bottomSpacer: {
     height: isIphoneX() ? getBottomSpace() : 0,
   },
 });
 
-export default Spacer;
+export default React.memo(Spacer);

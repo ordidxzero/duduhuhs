@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   text: { fontSize: 19, fontWeight: '700' },
 });
 
-export default NavigationButton;
+export default React.memo(NavigationButton);

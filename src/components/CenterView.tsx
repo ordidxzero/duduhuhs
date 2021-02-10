@@ -3,6 +3,10 @@ import { SafeAreaView, StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('screen');
 
+const CenterView: React.FC = ({ children }) => {
+  return <SafeAreaView style={styles.container}>{children}</SafeAreaView>;
+};
+
 const styles = StyleSheet.create({
   container: {
     width,
@@ -12,9 +16,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-const CenterView: React.FC = ({ children }) => {
-  return <SafeAreaView style={styles.container}>{children}</SafeAreaView>;
-};
 
 export default CenterView;

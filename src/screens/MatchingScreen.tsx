@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   text: { color: 'white', fontWeight: '800' },
 });
 
-export default MatchingScreen;
+export default React.memo(MatchingScreen);
