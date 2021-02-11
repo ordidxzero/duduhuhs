@@ -18,6 +18,7 @@
 		59379320D7692925CD2743EE /* libPods-duduhuhs-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 479757D40E6D0562B41CEDCD /* libPods-duduhuhs-tvOS.a */; };
 		69BC41BBC3892A0260D8C691 /* libPods-duduhuhs-duduhuhsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 423BC1D613153EFE3893673B /* libPods-duduhuhs-duduhuhsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9B3DE23325D4B40C009F2E1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3DE23225D4B40C009F2E1E /* GoogleService-Info.plist */; };
 		A49DE99432E0DA0FCACDD989 /* libPods-duduhuhs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A66423FDE584850E2B353B9B /* libPods-duduhuhs.a */; };
 		C039E0F06DADA4EF1E2FDAAF /* libPods-duduhuhs-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3DC19091B3C8542ED6BC38 /* libPods-duduhuhs-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		479757D40E6D0562B41CEDCD /* libPods-duduhuhs-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-duduhuhs-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F0AEE8B6C46264C0611919 /* Pods-duduhuhs-duduhuhsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duduhuhs-duduhuhsTests.release.xcconfig"; path = "Target Support Files/Pods-duduhuhs-duduhuhsTests/Pods-duduhuhs-duduhuhsTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = duduhuhs/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9B3DE23225D4B40C009F2E1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A66423FDE584850E2B353B9B /* libPods-duduhuhs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-duduhuhs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B992E8C3FCAF8E8200BB4FE9 /* Pods-duduhuhs-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duduhuhs-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-duduhuhs-tvOS/Pods-duduhuhs-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BD3DC19091B3C8542ED6BC38 /* libPods-duduhuhs-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-duduhuhs-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				9B3DE23225D4B40C009F2E1E /* GoogleService-Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -296,6 +299,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 3R6FNQQV7Q;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -344,6 +348,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				9B3DE23325D4B40C009F2E1E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3R6FNQQV7Q;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = duduhuhs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -731,6 +737,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3R6FNQQV7Q;
 				INFOPLIST_FILE = duduhuhs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
