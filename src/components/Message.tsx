@@ -33,6 +33,7 @@ const Message: React.FC<MessageProps> = ({ isMe, text, date }) => {
 const styles = StyleSheet.create({
   container: {
     maxWidth: width * 0.8,
+    marginBottom: 7,
   },
   partner: {
     alignSelf: 'flex-start',

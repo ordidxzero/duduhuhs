@@ -1,5 +1,6 @@
+import React, { useCallback, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import firebase from '@react-native-firebase/firestore';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { useThemeState } from '../lib/context';
@@ -8,6 +9,11 @@ import Input from './Input';
 const ChatForm = () => {
   // 나중에 Firebase 함수로 교체 후 지울 것
   const navigation = useNavigation();
+  const [input, setInput] = useState('');
+  const onPress = useCallback(() => {
+    firebase().collection('chatroom').add({ text: input, date: Date.now() });
+    setInput('');
+  }, [input]);
   const {
     theme: {
       chatForm: { theme },
@@ -15,8 +21,11 @@ const ChatForm = () => {
   } = useThemeState();
   return (
     <View style={[styles.container, theme.container]}>
-      <Input placeholder="Write Message" customStyle={styles.chatInput} />
-      <TouchableWithoutFeedback onPress={() => navigation.navigate('Matching')} style={[styles.chatSubmit, theme.chatSubmit]}>
+      <Input value={input} onChangeText={setInput} placeholder="Write Message" customStyle={styles.chatInput} />
+      <TouchableWithoutFeedback
+        onPress={onPress}
+        onLongPress={() => navigation.navigate('Matching')}
+        style={[styles.chatSubmit, theme.chatSubmit]}>
         <Text>S</Text>
       </TouchableWithoutFeedback>
     </View>
