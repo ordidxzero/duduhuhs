@@ -5,7 +5,6 @@ type Department = {
 
 const departments: Department[] = [
   { label: '간호학부', value: '간호학부' },
-  { label: '간호학부', value: '간호학부' },
   { label: '건설환경공학과', value: '건설환경공학과' },
   { label: '건축공학부', value: '건축공학부' },
   { label: '건축학부', value: '건축학부' },
@@ -19,7 +18,6 @@ const departments: Department[] = [
   { label: '국어교육과', value: '국어교육과' },
   { label: '국어국문학과', value: '국어국문학과' },
   { label: '국제학부', value: '국제학부' },
-  { label: '국제학부', value: '국제학부' },
   { label: '기계공학부', value: '기계공학부' },
   { label: '데이터사이언스학과', value: '데이터사이언스학과' },
   { label: '도시공학과', value: '도시공학과' },
@@ -32,9 +30,7 @@ const departments: Department[] = [
   { label: '사회학과', value: '사회학과' },
   { label: '산업공학과', value: '산업공학과' },
   { label: '산업융합학부', value: '산업융합학부' },
-  { label: '산업융합학부', value: '산업융합학부' },
   { label: '생명공학과', value: '생명공학과' },
-  { label: '생명과학과', value: '생명과학과' },
   { label: '성악과', value: '성악과' },
   { label: '수학과', value: '수학과' },
   { label: '수학교육과', value: '수학교육과' },

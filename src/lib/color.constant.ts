@@ -19,6 +19,7 @@ export const SPACER_BOTTOM_BACKGROUND_COLOR = '#fff';
 // ChatForm
 export const CHAT_FORM_BACKGROUND_COLOR = '#fff';
 export const CHAT_FORM_SUBMIT_BACKGROUND_COLOR = '#2ecc71';
+export const CHAT_FORM_SUBMIT_DISABLED_BACKGROUND_COLOR = '#95a5a6';
 // Message
 export const MESSAGE_ME_BACKGROUND_COLOR = '#f9ca24';
 export const MESSAGE_PARTNER_BACKGROUND_COLOR = '#fff';

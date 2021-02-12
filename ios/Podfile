@@ -8,6 +8,8 @@ target 'duduhuhs' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'Firebase/Auth'
+
   target 'duduhuhsTests' do
     inherit! :complete
     # Pods for testing

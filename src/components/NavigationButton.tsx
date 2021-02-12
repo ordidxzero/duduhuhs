@@ -53,7 +53,8 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
 const styles = StyleSheet.create({
   container: {
     width: Dimensions.get('screen').width * 0.9,
-    padding: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
     borderRadius: 10,
     marginBottom: 15,
     alignItems: 'center',
