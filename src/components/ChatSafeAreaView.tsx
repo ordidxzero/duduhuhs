@@ -2,7 +2,7 @@ import React from 'react';
 import { KeyboardAvoidingView, StyleSheet, View, StatusBar as OriginalStatusBar } from 'react-native';
 import StatusBar from './StatusBar';
 import Spacer from './Spacer';
-import { useThemeState } from '../lib/context';
+import { useContextState } from '../lib/context';
 
 const ChatSafeAreaView: React.FC = ({ children }) => {
   // 여기서 backgroundColor를 바꿔야할 듯
@@ -11,7 +11,7 @@ const ChatSafeAreaView: React.FC = ({ children }) => {
     theme: {
       chatSafeAreaView: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
   return (
     <View style={[styles.container, theme.container]}>
       <OriginalStatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />

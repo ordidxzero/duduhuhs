@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { isIphoneX, getBottomSpace } from 'react-native-iphone-x-helper';
-import { useThemeState } from '../lib/context';
+import { useContextState } from '../lib/context';
 
 type SpacerProps = {
   position: 'top' | 'bottom';
@@ -13,7 +13,7 @@ const Spacer: React.FC<SpacerProps> = ({ position }) => {
     theme: {
       spacer: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
   if (position === 'top') {
     return <View style={styles.topSpacer} />;
   } else {

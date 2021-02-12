@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { useThemeState } from '../lib/context';
+import { useContextState } from '../lib/context';
 
 type MessageProps = {
   isMe: boolean;
@@ -15,7 +15,7 @@ const Message: React.FC<MessageProps> = ({ isMe, text, date }) => {
     theme: {
       message: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
   const messageBox = isMe ? theme.myBox : theme.partnerBox;
   const messageText = isMe ? theme.myText : theme.partnerText;
   const container = isMe ? styles.me : styles.partner;

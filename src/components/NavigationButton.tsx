@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Dimensions, StyleSheet, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RootStackParamList } from '../screens/types';
-import { useThemeState } from '../lib/context';
+import { useContextState } from '../lib/context';
 import { NAVIGATION_BUTTON_DISABLED_BACKGROUND_COLOR } from '../lib/color.constant';
 
 type NavigationButtonProps = {
@@ -28,7 +28,7 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
     theme: {
       navigationButton: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
 
   const backgroundColor = disabled
     ? NAVIGATION_BUTTON_DISABLED_BACKGROUND_COLOR
@@ -36,9 +36,9 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
 
   const color = customTextColor || theme.text.color;
 
-  const onPress = () => {
+  const onPress = async () => {
     if (beforeNavigate) {
-      beforeNavigate();
+      await beforeNavigate();
     }
     return navigation.navigate(navigateTo);
   };

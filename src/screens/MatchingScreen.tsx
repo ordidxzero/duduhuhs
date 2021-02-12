@@ -2,14 +2,14 @@ import React from 'react';
 import { Dimensions, StyleSheet, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import CenterView from '../components/CenterView';
-import { useThemeDispatch, useThemeState } from '../lib/context';
+import { useContextDispatch, useContextState } from '../lib/context';
 import { CustomStackScreenProp } from './types';
 
 const { width } = Dimensions.get('screen');
 
 const MatchingScreen = ({ navigation }: CustomStackScreenProp<'Matching'>) => {
-  const { darkMode } = useThemeState();
-  const dispatch = useThemeDispatch();
+  const { darkMode } = useContextState();
+  const dispatch = useContextDispatch();
   return (
     <CenterView>
       <TouchableOpacity onPress={() => navigation.navigate('ChatRoom')} style={styles.container}>

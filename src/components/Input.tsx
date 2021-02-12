@@ -3,7 +3,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { Dimensions, KeyboardType, ReturnKeyType, StyleProp, StyleSheet, TextStyle } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { INPUT_PLACEHOLDER_COLOR } from '../lib/color.constant';
-import { useThemeState } from '../lib/context';
+import { useContextState } from '../lib/context';
 import departments from '../lib/departments';
 
 type InputProps = {
@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({ placeholder, keyboardType, returnKeyType 
     theme: {
       input: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
   return (
     <TextInput
       value={value}
@@ -46,7 +46,7 @@ export const Picker: React.FC<PickerProps> = ({ value = departments[0].value, on
     theme: {
       input: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
   const inputIOS = { ...styles.container, ...theme.container };
   return (
     <RNPickerSelect

@@ -5,14 +5,14 @@ import AuthScreen from './screens/AuthScreen';
 import MatchingScreen from './screens/MatchingScreen';
 import { RootStackParamList } from './screens/types';
 import ChatRoomScreen from './screens/ChatRoomScreen';
-import { ThemeContextProvider } from './lib/context';
+import { ContextProvider } from './lib/context';
 import VerifyScreen from './screens/VerifyScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
-    <ThemeContextProvider>
+    <ContextProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Auth" screenOptions={{ headerShown: false, gestureEnabled: false }}>
           <Stack.Screen name="Auth" component={AuthScreen} />
@@ -21,7 +21,7 @@ const App = () => {
           <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
         </Stack.Navigator>
       </NavigationContainer>
-    </ThemeContextProvider>
+    </ContextProvider>
   );
 };
 

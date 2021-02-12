@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import firebase from '@react-native-firebase/firestore';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { useThemeState } from '../lib/context';
+import { useContextState } from '../lib/context';
 import Input from './Input';
 import { CHAT_FORM_SUBMIT_DISABLED_BACKGROUND_COLOR } from '../lib/color.constant';
 
@@ -23,7 +23,7 @@ const ChatForm = () => {
     theme: {
       chatForm: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
   return (
     <View style={[styles.container, theme.container]}>
       <Input value={input} onChangeText={setInput} placeholder="Write Message" customStyle={styles.chatInput} />

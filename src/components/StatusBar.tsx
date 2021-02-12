@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
-import { useThemeState } from '../lib/context';
+import { useContextState } from '../lib/context';
 
 const StatusBar = () => {
   const {
     theme: {
       statusBar: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
   return (
     <>
       <View style={[styles.container, theme.container]} />

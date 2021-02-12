@@ -1,7 +1,7 @@
 import React from 'react';
 import { KeyboardAvoidingView, StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useThemeState } from '../lib/context';
+import { useContextState } from '../lib/context';
 
 const CustomSafeAreaView: React.FC = ({ children }) => {
   const {
@@ -9,7 +9,7 @@ const CustomSafeAreaView: React.FC = ({ children }) => {
     theme: {
       customSafeAreaView: { theme },
     },
-  } = useThemeState();
+  } = useContextState();
   return (
     <SafeAreaView style={[styles.container, theme.container]}>
       <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
