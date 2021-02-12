@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import CustomSafeAreaView from '../components/CustomSafeAreaView';
 import Input, { Picker } from '../components/Input';
 import NavigationButton from '../components/NavigationButton';
+import useMessagingPermission from '../hooks/useMessagingPermission';
 
 const styles = StyleSheet.create({
   appLogo: { marginBottom: 30 },
@@ -10,6 +11,7 @@ const styles = StyleSheet.create({
 });
 
 const AuthScreen = () => {
+  useMessagingPermission();
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
   const [department, setDepartment] = useState('');
