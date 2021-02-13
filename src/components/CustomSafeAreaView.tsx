@@ -1,8 +1,7 @@
 import React from 'react';
-import { KeyboardAvoidingView, ScrollView, StatusBar, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useContextState } from '../lib/context';
-import AppLogo from './AppLogo';
 
 const CustomSafeAreaView: React.FC = ({ children }) => {
   const {
@@ -14,11 +13,8 @@ const CustomSafeAreaView: React.FC = ({ children }) => {
   return (
     <SafeAreaView style={[styles.container, theme.container]}>
       <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
-      <AppLogo />
       <KeyboardAvoidingView behavior="padding" style={styles.keyboardAvoidingView}>
-        <ScrollView keyboardDismissMode="on-drag" contentContainerStyle={styles.scrollView}>
-          {children}
-        </ScrollView>
+        {children}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -26,8 +22,7 @@ const CustomSafeAreaView: React.FC = ({ children }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  keyboardAvoidingView: { flex: 1 },
-  scrollView: { flex: 1, alignItems: 'center', justifyContent: 'space-between', paddingTop: 20 },
+  keyboardAvoidingView: { flex: 1, alignItems: 'center', justifyContent: 'space-between' },
 });
 
 export default CustomSafeAreaView;
