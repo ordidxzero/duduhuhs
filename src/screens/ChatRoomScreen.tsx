@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Dimensions, Keyboard, StyleSheet } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
-import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import ChatForm from '../components/ChatForm';
 import ChatSafeAreaView from '../components/ChatSafeAreaView';
 import Message from '../components/Message';
@@ -22,13 +21,11 @@ const ChatRoomScreen = () => {
   }, []);
   return (
     <ChatSafeAreaView>
-      <ScrollView style={styles.scrollView}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={{ height: '100%' }}>
-          <Spacer position="top" />
-          {messages.map((message) => (
-            <Message key={message.date} isMe={true} text={message.text} date={message.date} />
-          ))}
-        </TouchableWithoutFeedback>
+      <ScrollView keyboardDismissMode="on-drag" style={styles.scrollView}>
+        <Spacer position="top" />
+        {messages.map((message) => (
+          <Message key={message.date} isMe={true} text={message.text} date={message.date} />
+        ))}
       </ScrollView>
       <ChatForm />
     </ChatSafeAreaView>

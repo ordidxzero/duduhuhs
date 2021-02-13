@@ -52,7 +52,11 @@ export const Picker: React.FC<PickerProps> = ({ value = departments[0].value, on
     <RNPickerSelect
       placeholder={{ label: 'Department', value: '' }}
       items={departments}
-      style={{ inputIOS, placeholder: { color: INPUT_PLACEHOLDER_COLOR } }}
+      style={{
+        inputIOS,
+        placeholder: { color: INPUT_PLACEHOLDER_COLOR },
+        inputIOSContainer: { justifyContent: 'center', alignItems: 'center' },
+      }}
       value={value}
       onValueChange={onValueChange}
     />
