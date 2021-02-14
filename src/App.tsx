@@ -14,7 +14,7 @@ const App = () => {
   return (
     <ContextProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Matching" screenOptions={{ headerShown: false, gestureEnabled: false }}>
+        <Stack.Navigator initialRouteName="Auth" screenOptions={{ headerShown: false, gestureEnabled: false }}>
           <Stack.Screen name="Auth" component={AuthScreen} />
           <Stack.Screen name="Verify" component={VerifyScreen} />
           <Stack.Screen name="Matching" component={MatchingScreen} />
