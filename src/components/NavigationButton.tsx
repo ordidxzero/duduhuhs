@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { ActivityIndicator, Dimensions, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { RootStackParamList } from '../screens/types';
 import { useContextState } from '../lib/context';
 import { NAVIGATION_BUTTON_DISABLED_BACKGROUND_COLOR } from '../lib/color.constant';
@@ -8,22 +8,11 @@ import { NAVIGATION_BUTTON_DISABLED_BACKGROUND_COLOR } from '../lib/color.consta
 type NavigationButtonProps = {
   text: string;
   navigateTo: keyof RootStackParamList;
-  customBgColor?: string;
-  customTextColor?: string;
   disabled?: boolean;
-  loading?: boolean;
   beforeNavigate?: () => void;
 };
 
-const NavigationButton: React.FC<NavigationButtonProps> = ({
-  text,
-  navigateTo,
-  customBgColor,
-  customTextColor,
-  disabled,
-  loading,
-  beforeNavigate,
-}) => {
+const NavigationButton: React.FC<NavigationButtonProps> = ({ text, navigateTo, disabled, beforeNavigate }) => {
   const navigation = useNavigation();
   const {
     theme: {
@@ -31,11 +20,9 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
     },
   } = useContextState();
 
-  const backgroundColor = disabled
-    ? NAVIGATION_BUTTON_DISABLED_BACKGROUND_COLOR
-    : customBgColor || theme.container.backgroundColor;
+  const backgroundColor = disabled ? NAVIGATION_BUTTON_DISABLED_BACKGROUND_COLOR : theme.container.backgroundColor;
 
-  const color = customTextColor || theme.text.color;
+  const color = theme.text.color;
 
   const onPress = useCallback(async () => {
     if (beforeNavigate) {
@@ -45,11 +32,8 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
   }, [beforeNavigate, navigateTo, navigation]);
 
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      disabled={disabled || loading}
-      style={[styles.container, theme.container, { backgroundColor }]}>
-      {loading ? <ActivityIndicator color="white" /> : <Text style={[styles.text, theme.text, { color }]}>{text}</Text>}
+    <TouchableOpacity onPress={onPress} disabled={disabled} style={[styles.container, theme.container, { backgroundColor }]}>
+      <Text style={[styles.text, theme.text, { color }]}>{text}</Text>
     </TouchableOpacity>
   );
 };

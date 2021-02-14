@@ -2,11 +2,18 @@ import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import React, { createContext, Dispatch, useContext, useReducer } from 'react';
 import { defaultTheme, CustomTheme, darkModeTheme } from './themes';
 
+export type InputFields = {
+  name: string;
+  studentId: string;
+  department: string;
+  phone: string;
+};
+
 type MainState = {
   darkMode: boolean;
   theme: CustomTheme;
   firebaseAuthConfirmation: FirebaseAuthTypes.ConfirmationResult | null;
-  phone: string;
+  input: InputFields;
 };
 
 const MainStateContext = createContext<MainState | undefined>(undefined);
@@ -14,7 +21,7 @@ const MainStateContext = createContext<MainState | undefined>(undefined);
 type Action =
   | { type: 'TOGGLE_DARKMODE'; payload: boolean }
   | { type: 'SET_CONFIRMATION'; payload: FirebaseAuthTypes.ConfirmationResult }
-  | { type: 'SET_PHONE'; payload: string };
+  | { type: 'SET_INPUT'; payload: { field: keyof InputFields; value: string } };
 
 type MainDispatch = Dispatch<Action>;
 const MainDispatchContext = createContext<MainDispatch | undefined>(undefined);
@@ -25,8 +32,9 @@ function themeReducer(state: MainState, { payload, type }: Action): MainState {
       return { ...state, darkMode: payload as boolean, theme: payload ? darkModeTheme : defaultTheme };
     case 'SET_CONFIRMATION':
       return { ...state, firebaseAuthConfirmation: payload as FirebaseAuthTypes.ConfirmationResult };
-    case 'SET_PHONE':
-      return { ...state, phone: payload as string };
+    case 'SET_INPUT':
+      const { field, value } = payload as { field: keyof InputFields; value: string };
+      return { ...state, input: { ...state.input, [field]: value } };
     default:
       throw new Error('Unhandled action');
   }
@@ -37,7 +45,12 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
     darkMode: false,
     theme: defaultTheme,
     firebaseAuthConfirmation: null,
-    phone: '',
+    input: {
+      name: '',
+      studentId: '',
+      department: '',
+      phone: '',
+    },
   });
 
   return (

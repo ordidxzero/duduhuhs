@@ -11,7 +11,10 @@ const phoneNumberFormatter = (number: string) => {
 };
 
 const usePhoneAuth = () => {
-  const { phone, firebaseAuthConfirmation } = useContextState();
+  const {
+    input: { phone },
+    firebaseAuthConfirmation,
+  } = useContextState();
   const dispatch = useContextDispatch();
   const signInWithPhoneNumber = useCallback(
     async (forceResend: boolean = false) => {
@@ -20,8 +23,7 @@ const usePhoneAuth = () => {
     },
     [dispatch, phone],
   );
-  const setPhone = useCallback((payload: string) => dispatch({ type: 'SET_PHONE', payload }), [dispatch]);
-  return { phone, firebaseAuthConfirmation, signInWithPhoneNumber, setPhone };
+  return { firebaseAuthConfirmation, signInWithPhoneNumber };
 };
 
 export default usePhoneAuth;
