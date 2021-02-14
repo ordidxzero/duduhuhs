@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Dimensions, ScrollView, StyleSheet } from 'react-native';
-import firestore from '@react-native-firebase/firestore';
 import ChatForm from '../components/ChatForm';
 import ChatSafeAreaView from '../components/ChatSafeAreaView';
 import Message from '../components/Message';
 import Spacer from '../components/Spacer';
+import useMessages from '../hooks/useMessages';
 
 const { width } = Dimensions.get('screen');
 
 const ChatRoomScreen = () => {
-  const [messages, setMessages] = useState<any[]>([]);
-  useEffect(() => {
-    firestore()
-      .collection('chatroom')
-      .orderBy('date')
-      .onSnapshot((snapshot) => {
-        const FBMessages = snapshot.docs.map((message) => ({ id: message.id, ...message.data() }));
-        setMessages(FBMessages);
-      });
-  }, []);
+  const messages = useMessages();
   return (
     <ChatSafeAreaView>
       <ScrollView keyboardDismissMode="on-drag" style={styles.scrollView}>

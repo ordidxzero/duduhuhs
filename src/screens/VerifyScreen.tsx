@@ -4,10 +4,6 @@ import CustomSafeAreaView from '../components/CustomSafeAreaView';
 import Input from '../components/Input';
 import VerifyButton from '../components/VerifyButton';
 
-const styles = StyleSheet.create({
-  inputContainer: { justifyContent: 'flex-start', alignItems: 'center' },
-});
-
 const VerifyScreen = () => {
   const [code, setCode] = useState('');
   const beforeNavigate = () => setCode('');
@@ -21,5 +17,9 @@ const VerifyScreen = () => {
     </CustomSafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  inputContainer: { justifyContent: 'flex-start', alignItems: 'center' },
+});
 
 export default React.memo(VerifyScreen);

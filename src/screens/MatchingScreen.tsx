@@ -18,7 +18,7 @@ const MatchingScreen = ({ navigation }: CustomStackScreenProp<'Matching'>) => {
   };
   return (
     <CustomSafeAreaView>
-      <PulseButton onPress={onPress} text="Match" size={width * 0.4} pulseMaxSize={width * 0.8} />
+      <PulseButton onPress={onPress} text="Match" size={width * 0.3} pulseMaxSize={width * 0.6} />
       <TouchableOpacity onPress={() => dispatch({ type: 'TOGGLE_DARKMODE', payload: !darkMode })}>
         <Text>Set Dark Mode (Current: {darkMode ? 'Dark' : 'Light'})</Text>
       </TouchableOpacity>

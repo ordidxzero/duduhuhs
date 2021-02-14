@@ -7,9 +7,6 @@ import useInput from '../hooks/useInput';
 import useMessagingPermission from '../hooks/useMessagingPermission';
 import usePhoneAuth from '../hooks/usePhoneAuth';
 
-const styles = StyleSheet.create({
-  inputContainer: { justifyContent: 'flex-start', alignItems: 'center' },
-});
 const AuthScreen = () => {
   useMessagingPermission();
   const { signInWithPhoneNumber } = usePhoneAuth();
@@ -31,5 +28,9 @@ const AuthScreen = () => {
     </CustomSafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  inputContainer: { justifyContent: 'flex-start', alignItems: 'center' },
+});
 
 export default React.memo(AuthScreen);
