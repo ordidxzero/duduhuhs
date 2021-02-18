@@ -21,7 +21,7 @@ const CustomSafeAreaView: React.FC = ({ children }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, paddingTop: 30 },
   keyboardAvoidingView: { flex: 1, alignItems: 'center', justifyContent: 'space-between' },
 });
 
